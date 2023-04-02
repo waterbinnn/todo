@@ -1,0 +1,137 @@
+.title {
+    font-size: 30px;
+    color: #308aff;
+}
+
+.section {
+    width: 80%;
+    padding: 10px 10px;
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #308aff;
+}
+
+.list-wrap {
+    position: relative;
+    margin-top: 30px;
+}
+
+.todo-form {
+    margin: 10px 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.save-btn {
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #308aff;
+    color: #ffffff;
+}
+
+.todo-input {
+    border: 1px solid #d3d3d3;
+    border-radius: 4px;
+    width: 90%;
+    margin-right: 8px;
+    padding: 10px;
+}
+
+.todo-input:focus,
+.todo-input:active {
+    outline: none;
+    border-color: #308aff;
+}
+
+.input-color {
+    width: 5%;
+    min-width: 50px;
+    height: 35px;
+    border: 1px solid #d3d3d3;
+    border-radius: 3px;
+    background-color: transparent;
+    margin-right: 6px;
+    cursor: pointer;
+}
+
+.todo-wrap {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 4px;
+    margin: 10px;
+}
+
+.todo-desc {
+    font-size: 14px;
+    line-height: 1.5;
+    border: none;
+    width: -webkit-fill-available;
+    text-decoration: none;
+}
+
+.todo-desc.checked {
+    text-decoration: line-through;
+    color: #838383;
+}
+
+.edit-color {
+    border: none;
+    width: 30px;
+    height: 20px;
+    display: none;
+}
+
+.todo-btn {
+    font-size: 10px;
+    padding: 4px;
+    border: none;
+    color: #838383;
+    cursor: pointer;
+}
+
+.todo-date {
+    width: 150px;
+    font-size: 10px;
+    line-height: 1.2;
+    color: #d3d3d3;
+    margin-top: 4px;
+    margin-left: 4px;
+}
+
+.completed-btn {
+    position: absolute;
+    top: -4px;
+    right: 96px;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 2px;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.delete-btn {
+    position: absolute;
+    top: -4px;
+    right: 0px;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 2px;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.deleted-list {
+    display: flex;
+    flex-direction: column;
+    color: #838383;
+}

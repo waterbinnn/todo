@@ -1,0 +1,317 @@
+/**
+ * Unreset CSS
+ *
+ * Copyright (C) 2016 Kite (ixkaito@gmail.com)
+ * License MIT
+ * Version 1.0.0
+ *
+ * Unreset CSS restores browsers' default element styles which are reset by
+ * Eric Meyer's Reset CSS, YUI 3 Reset CSS, HTML5 Reset Stylesheet of HTML5
+ * Doctor, or Tim Murtaugh's HTML5 Reset.
+ */
+
+html {
+    box-sizing: content-box;
+}
+
+body {
+    margin: 8px;
+    line-height: normal;
+}
+
+p {
+    margin: 1em 0;
+}
+
+blockquote,
+figure {
+    margin: 1em 40px;
+}
+
+q {
+    quotes: '“' '”' '‘' '’';
+
+    &::before {
+        content: open-quote;
+    }
+
+    &::after {
+        content: close-quote;
+    }
+}
+
+hr {
+    box-sizing: border-box;
+    margin: 0.5em auto;
+    border: 1px inset;
+}
+
+h1 {
+    margin: 0.67em 0;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+h2 {
+    margin: 0.83em 0;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+h3 {
+    margin: 1em 0;
+    font-size: 1.17em;
+    font-weight: bold;
+}
+
+h4 {
+    margin: 1.33em 0;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+h5 {
+    margin: 1.67em 0;
+    font-size: 0.83em;
+    font-weight: bold;
+}
+
+h6 {
+    margin: 2.33em 0;
+    font-size: 0.67em;
+    font-weight: bold;
+}
+
+article,
+aside,
+nav,
+section {
+    h1 {
+        margin: 0.83em 0;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    article,
+    aside,
+    nav,
+    section {
+        h1 {
+            margin: 1em 0;
+            font-size: 1.17em;
+            font-weight: bold;
+        }
+
+        article,
+        aside,
+        nav,
+        section {
+            h1 {
+                margin: 1.33em 0;
+                font-size: 1em;
+                font-weight: bold;
+            }
+
+            article,
+            aside,
+            nav,
+            section {
+                h1 {
+                    margin: 1.67em 0;
+                    font-size: 0.83em;
+                    font-weight: bold;
+                }
+
+                article,
+                aside,
+                nav,
+                section {
+                    h1 {
+                        margin: 2.33em 0;
+                        font-size: 0.67em;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}
+
+table {
+    border-spacing: 2px;
+    border-collapse: separate;
+    border-color: gray;
+}
+
+thead,
+tbody,
+tfoot,
+tr {
+    border-color: inherit;
+    vertical-align: middle;
+}
+
+td,
+th {
+    padding: 1px;
+    vertical-align: inherit;
+}
+
+th {
+    font-weight: bold;
+}
+
+caption {
+    text-align: center;
+}
+
+ul,
+menu {
+    margin: 1em 0;
+    padding: 0 0 0 0;
+    list-style-type: disc;
+}
+
+ol {
+    margin: 1em 0;
+    padding: 0 0 0 40px;
+    list-style-type: decimal;
+}
+
+ul,
+ol {
+    ul {
+        list-style-type: circle;
+    }
+
+    ul,
+    ol {
+        ul {
+            list-style-type: square;
+        }
+    }
+}
+
+dd {
+    margin: 0 0 0 40px;
+}
+
+dl {
+    margin: 1em 0;
+}
+
+ul,
+ol,
+menu,
+dl {
+    ul,
+    ol,
+    menu,
+    dl {
+        margin: 0;
+    }
+}
+
+legend {
+    padding: 0 2px;
+}
+
+fieldset {
+    margin: 0 2px;
+    padding: 0 2px 3px;
+    border: 2px groove ThreeDFace;
+    border-width: 2px;
+    border-style: groove;
+    -webkit-padding-before: 0.35em;
+    -webkit-padding-start: 0.75em;
+    -webkit-padding-end: 0.75em;
+    -webkit-padding-after: 0.625em;
+}
+
+ins {
+    background-color: transparent;
+    font-weight: inherit;
+    text-decoration: underline;
+}
+
+b,
+strong {
+    font-weight: bold;
+}
+
+i,
+cite,
+em,
+var,
+address,
+dfn {
+    font-style: italic;
+    font-weight: inherit;
+}
+
+abbr[title],
+dfn[title] {
+    border-bottom: 0;
+    font-weight: inherit;
+    cursor: default;
+}
+
+tt,
+code,
+kbd,
+samp {
+    font-family: monospace;
+    font-weight: inherit;
+}
+
+pre {
+    margin: 1em 0;
+    font-family: monospace;
+    white-space: pre;
+}
+
+mark {
+    background-color: yellow;
+    color: black;
+    font-style: normal;
+    font-weight: inherit;
+}
+
+big {
+    font-size: larger;
+    font-weight: inherit;
+}
+
+small {
+    font-size: smaller;
+    font-weight: inherit;
+}
+
+sub,
+sup {
+    position: static;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+sub {
+    bottom: 0;
+    font-size: smaller;
+    vertical-align: sub;
+}
+
+sup {
+    top: 0;
+    font-size: smaller;
+    vertical-align: super;
+}
+
+ruby {
+    > rt {
+        font-size: 50%;
+    }
+}
+
+iframe {
+    border: 2px inset;
+}

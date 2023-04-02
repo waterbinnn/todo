@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>TODO</title>
+        <link rel="stylesheet" href="./src/style/reset.css" />
+        <link rel="stylesheet" href="./src/style/unreset.css" />
+        <link rel="stylesheet" href="./src/style/todo.css" />
+    </head>
+    <body>
+        <h1 class="title">TODO LIST</h1>
+        <section class="section">
+            <h2 class="visually-hidden">할일</h2>
+            <form class="todo-form">
+                <input
+                    type="text"
+                    class="todo-input"
+                    id="todoInput"
+                    name="todoInput"
+                    placeholder="1~20자 이내의 할 일을 입력해 주세요."
+                    autofocus
+                />
+                <input
+                    type="color"
+                    name="inputColor"
+                    id="inputColor"
+                    class="input-color"
+                />
+                <button class="save-btn">SAVE</button>
+            </form>
+
+            <section class="list-wrap">
+                <h2 class="section-title">TODOS</h2>
+                <button type="button" class="completed-btn">
+                    완료된 할 일 삭제
+                </button>
+                <button type="button" class="delete-btn">
+                    선택한 할 일 삭제
+                </button>
+                <ul class="todos"></ul>
+            </section>
+        </section>
+        <section class="section">
+            <h2 class="section-title">DELETED</h2>
+            <ul class="deleted-list"></ul>
+        </section>
+    </body>
+    <script src="todo.js"></script>
+</html>
