@@ -1,5 +1,26 @@
 # todo list
 
+## Stack
+
+typeScript, html, css
+
+## 기능
+
+-   할 일 작성
+
+    -   할 일 작성, text color 설정, 설정 안할 시 랜덤 컬러 노출
+
+-   할 일 수정
+
+    -   수정 시간 노출, 텍스트 컬러 수정
+
+-   할 일 삭제
+
+    -   완료된 할 일 삭제, 선택한 할 일 삭제
+    -   삭제 리스트 , 삭제 리스트 삭제
+
+## 구현 기록 (수도코드 및 기록)
+
 ### [할 일 작성]
 
 1.  할일 입력 (length 1-20자)
@@ -144,3 +165,24 @@
     isTodo = true 로 초기화하고
     같으면 isTodo false 로 만들어서 todo가 true인 값만 removeTodo에 저장하여
     todoList에 할당
+
+++
+
+[할 일, 완료된 할 일 분리]
+
+-   sort 함수 사용
+
+```js
+const sortedList = todoList.sort((a: Todo, b: Todo) =>
+    a.isCompleted === b.isCompleted ? 0 : a.isCompleted ? 1 : -1
+);
+```
+
+-   완료된 할일로 체크되면 paintTodo 새로 해주면서 바로 화면에 업데이트
+
+[랜덤컬러]
+
+-   color input에 아무런 이벤트 없을 시 랜덤으로 텍스트 컬러
+    각각의 할 일 입력 후 새로고침이 되어야 새로운 랜덤값이 보이는 문제가 생김
+    새로고침 하지 않고 할 일만 save하게 되면 같은 랜덤값이 보이는 문제.
+-   처음에 random 컬러 변수를 함수 외부에 만들어 줬었는데, 이렇게 하면 같은 랜덤값을 가지기 때문에 할일 입력 save 버튼 클릭시 동작하는 함수 내부에 랜덤값을 넣고 이 값만 업데이트 되게끔 로직 수정
