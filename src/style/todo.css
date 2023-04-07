@@ -3,8 +3,21 @@
     color: #308aff;
 }
 
+.date {
+    font-size: 14px;
+    font-weight: 600;
+    color: #308affb2;
+}
+
+.title-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+}
+
 .section {
-    width: 80%;
+    width: 90%;
     padding: 10px 10px;
     margin-bottom: 40px;
 }
@@ -125,6 +138,21 @@
     position: absolute;
     top: -4px;
     right: 0px;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 2px;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.section.delete {
+    position: relative;
+}
+
+.delete-list-btn {
+    position: absolute;
+    top: 26px;
+    right: 10px;
     border: none;
     padding: 6px 10px;
     border-radius: 2px;

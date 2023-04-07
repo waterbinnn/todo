@@ -1,4 +1,6 @@
 "use strict";
+//오늘 날짜
+const todayDate = document.querySelector('#date');
 //form
 const todoForm = document.querySelector('.todo-form');
 //form input text
@@ -13,6 +15,8 @@ const deletedTodos = document.querySelector('.deleted-todos');
 const completedDeleteBtn = document.querySelector('.completed-btn');
 //선택한 할 일 삭제 버튼
 const selectDeleteBtn = document.querySelector('.select-delete-btn');
+//삭제 리스트 전체 삭제 버튼
+const deleteListBtn = document.querySelector('.delete-list-btn');
 //할 일 리스트
 let todoList = [];
 //삭제된 할 일 리스트
@@ -296,6 +300,19 @@ selectDeleteBtn?.addEventListener('click', () => {
         alert('삭제할 항목을 선택해 주세요.');
     }
 });
+//삭제한 할 일 전체삭제 버튼 클릭시 실행
+deleteListBtn?.addEventListener('click', () => {
+    if (deleteList.length > 0) {
+        alert('삭제되었습니다.');
+        localStorage.removeItem('delete-list');
+        const deleteList = [];
+        paintDeletedTodo(deleteList);
+    }
+    else {
+        alert('삭제할 할 일이 없습니다.');
+    }
+});
 window.onload = () => {
     loadTodo();
+    todayDate.innerHTML = `${date.toLocaleDateString('ko-KR').slice(0, -1)}`;
 };
