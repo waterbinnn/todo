@@ -1,15 +1,14 @@
-todo
+# todo list
 
-### 할일 작성
+### [할 일 작성]
 
 1.  할일 입력 (length 1-20자)
     const todoInput = document.querySelector<HTMLInputElement>('#todoInput');
 
     -   인풋 value 받아서 1-20자 이내 입력 체크
-        색상 선택 (글씨 색상으로 들어가게)
+    -   색상 선택 (글씨 색상으로 들어가게)
     -   get document.querySelector('#inputColor')
-    -   let isClicked = false , 클릭 이벤트 일어났을 경우 true
-    -   colorValue 선언, 삼항식으로 `isClicked ? inputColor.value : randomColor`
+    -   let isClicked = false , 클릭 이벤트 일어났을 경우 true - colorValue 선언, 삼항식으로 `isClicked ? inputColor.value : #${randomColor} `
 
 2.  할일 저장 `addTodo`
 
@@ -33,41 +32,45 @@ todo
 
         `editDate`: 수정되면 보여질 date, 기본값은 '' 로 담고 수정될 때 담아주기
 
-        저장 하면
+    -   저장 하면
 
         -   todoList 배열에 push 입력한 todo
         -   input value 초기화
         -   addTodoStorage
         -   paintTodo
-        -   새로고침
-            실행
+        -   실행
 
-3.  버튼 클릭 후 로컬스토리지에 저장되면 저장된 값들을 불러오기 위해
-    `getLocalStorage`
-    로컬스토리지의 todo-list 값이 null이 아닐 경우 조건 달기
-    localStorage.getItem('todo-list')
-    JSON.Parse 파싱해주고 todoList 에 push,
-    이 todoList 를 그려주는 함수 실행 (paintTodo)
+3.  `getLocalStorage`
+
+    -   버튼 클릭 후 로컬스토리지에 저장되면 저장된 값들을 불러오기
+    -   로컬스토리지의 todo-list 값이 null이 아닐 경우 조건 달기
+    -   localStorage.getItem('todo-list')
+    -   JSON.Parse 파싱해주고 todoList 에 push,
+    -   이 todoList 를 그려주는 함수 실행 (paintTodo)
 
 4.  paintTodo 함수 작성 - 화면에 그려줄 DOMElement
-    템플렛 리터럴로 작성
-    로컬스토리지에 저장한 todoList 내의 todo를 배열로 돌려서 화면에 그려주기
+
+    -   paintDom() : 템플렛 리터럴로 작성
+        로컬스토리지에 저장한 todoList 내의 todo를 배열로 돌려서 화면에 그려주기
+    -   sortedList : paintDom 에서 받아오는 todoList 를 isCompleted value에 따라 sorting
 
     -   isCompleted 체크박스
         기본값은 false , 체크되면 input html에 'checked' 추가 - 로드되면 로컬스토리지에 갖고있는 값의 상태를 보여주기
         paintTodo 에서 map돌리는 각각의 todo에 isCompleted = true일 경우 'checked' 넣는 로직 작성
-        `const checked = todo.isCompleted ? 'checked' : null;`
+        `const completed = todo.isCompleted ? 'checked' : null;`
 
     -   loadTodo 함수 생성
         getLocalStorage() 넣기
         window.onload 일 때 실행
 
 5.  isCompleted 완료된 할 일 체크박스 토글
-    체크한 target id , id 값 일치하는지 확인하고 일치하면
-    isCompleted = !isCompleted 토글
-    체크박스 클릭할 때 마다 로컬스토리지에 있는 값 업데이트 (addTodoStorage)
+    -   체크한 target id , id 값 일치하는지 확인하고 일치하면
+        isCompleted = !isCompleted 토글
+    -   체크박스 클릭할 때 마다 로컬스토리지에 있는 값 업데이트 (addTodoStorage)
+    -   새로고침으로 업데이트 하지 않고 -> 클릭했을 때 input classList 에 'checked' 토글해서 화면에 지워진 ui 그려줌 (기존에는 `paintTodo`에서 isComplete=true 일 때 line-though ui 보여졌음 )
+        paintTodo(todoList); 로 todoList isComplete true / false sorting된 리스트 바로 보여지게
 
-### 할일 수정
+### [할 일 수정]
 
 1. 수정 버튼 클릭
 2. input 창 활성화 ,focus, color input display
@@ -91,10 +94,10 @@ todo
     -   todo color = editColor[i].value로 업데이트
     -   조건문으로 기존 input 값과 비교하여 다르면 todo editDate, content 업데이트
     -   1-20 자 입력하도록 조건문
+        -   조건에 맞지 않을 시 alert, activeEdit
     -   수정 후 addTodoStorage
-    -   윈도우 리로드
 
-### 할일 삭제
+### [할 일 삭제]
 
 단건, 선택삭제, 완료된 할 일 삭제 공통적으로
 
@@ -112,11 +115,18 @@ todo
     todo.content만을 받고 paintTodo 처럼 그려주기
     getLocalStorage에서 실행
 
+-   deleteTodo(todoList, deleteList)
+    로컬스토리지 업데이트
+    삭제 후 alert
+    삭제 된 리스트 화면에 바로 보여주기 위해
+    todoList 업데이트 위해 paintTodo(todoList) 필터링 후의 리스트 넣어서 paint
+    새로운 deleteList => paintDeletedTodo(deleteList) 로 painting
+
 1. 단 건 삭제
 
 -   삭제버튼 클릭 이벤트
     버튼 클릭 시 버튼 parentNode인 li classList에 delete이 있으면
-    deleteBtnTodo() 실행
+    deleteTodo() 실행
     함수에 li가 가지고 잇는 id 받아야 하기 때문에 li 를 상수로 가져오기
     const removeTodo = todoList.filter로
     todo.id가 같은 경우 삭제, 다를 경우만 return
@@ -129,7 +139,7 @@ todo
 
 -   쿼리셀렉터로 버튼 가져오기 (checkDeleteBtn, completedDeleteBtn)
 -   체크박스 체크 - 삭제버튼 처럼 todos 리스너 함수에서 li id 받기
--   새배열(checkIdList, deleteLsit) 만들어서 아이디 담기
+-   새배열(selectIdList, deleteList) 만들어서 아이디 담기
     filter로 클릭한 아이디와 받은 아이디의 일치여부 확인 ->
     isTodo = true 로 초기화하고
     같으면 isTodo false 로 만들어서 todo가 true인 값만 removeTodo에 저장하여
