@@ -66,7 +66,7 @@
 .todo-wrap {
     display: flex;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     gap: 4px;
     margin: 10px;
 }
@@ -74,14 +74,16 @@
 .todo-desc {
     font-size: 14px;
     line-height: 1.5;
+    padding: 4px 8px;
     border: none;
+    border-radius: 2px;
     width: -webkit-fill-available;
     text-decoration: none;
 }
 
 .todo-desc.checked {
+    color: #838383 !important;
     text-decoration: line-through;
-    color: #838383;
 }
 
 .edit-color {
@@ -119,7 +121,7 @@
     cursor: pointer;
 }
 
-.delete-btn {
+.select-delete-btn {
     position: absolute;
     top: -4px;
     right: 0px;
@@ -130,7 +132,7 @@
     cursor: pointer;
 }
 
-.deleted-list {
+.deleted-todos {
     display: flex;
     flex-direction: column;
     color: #838383;
