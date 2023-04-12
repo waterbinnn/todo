@@ -106,25 +106,25 @@ const addTodo = (): void => {
 //paint todo list
 const paintTodo = (todoList: Todo[]): void => {
     //todo isComplete true/false 분리
-    const sortedList: Todo[] = todoList.sort((a: Todo, b: Todo) =>
-        a.isCompleted === b.isCompleted ? 0 : a.isCompleted ? 1 : -1
-    );
+    const sortedList: Todo[] = todoList.sort((a: Todo, b: Todo) => {
+        if (a.isCompleted === b.isCompleted) {
+            return 0;
+        } else if (a.isCompleted) {
+            return 1;
+        } else {
+            return -1;
+        }
+    });
     const todoDOM: string[] = paintDom(sortedList);
-
-    todos.innerHTML = todoDOM.join().replaceAll(',', '');
+    todos.innerHTML = paintInnerHtml(todoDOM);
 };
 
 const paintDom = (list: Todo[]): string[] => {
     const todoDOM: string[] = list.map((todo: Todo) => {
         //완료 상태 확인
         const completed = todo.isCompleted ? 'checked' : null;
-
-        //완료된 항목 배열에 아이디 저장
-        if (todo.isCompleted) {
-            completedIdList.add(todo.id);
-        } else {
-            completedIdList.delete(todo.id);
-        }
+        //완료된 할 일 리스트 관리
+        completedIdList[todo.isCompleted ? 'add' : 'delete'](todo.id);
 
         return `
         <li class="todo-wrap" id=${todo.id}>
@@ -155,7 +155,11 @@ const paintDeletedTodo = (todo: Todo[]): void => {
         `;
     });
 
-    deletedTodos.innerHTML = todoDOM.join().replaceAll(',', '');
+    deletedTodos.innerHTML = paintInnerHtml(todoDOM);
+};
+
+const paintInnerHtml = (dom: string[]): string => {
+    return dom.join().replaceAll(',', '');
 };
 
 //save to localStorage - Todo List
